@@ -1,5 +1,5 @@
-import React from 'react'
-import classNames from 'classnames'
+import React, { useState } from 'react';
+import classNames from 'classnames';
 
 import {
   CAvatar,
@@ -10,24 +10,40 @@ import {
   CCardHeader,
   CCol,
   CRow,
-} from '@coreui/react'
+} from '@coreui/react';
 
-import {
-  CChartBar
-} from '@coreui/react-chartjs'
+import { CChartBar } from '@coreui/react-chartjs';
 
-import CIcon from '@coreui/icons-react'
-import {
-  cilCloudDownload,
-} from '@coreui/icons'
+import CIcon from '@coreui/icons-react';
+import { cilCloudDownload } from '@coreui/icons';
 
-import WidgetsDropdown from '../widgets/WidgetsDropdown'
+import WidgetsDropdown from '../widgets/WidgetsDropdown';
 
 const Dashboard = () => {
-  const user = {
+  // 10 Users with department, CO2 emission, and points
+  const users = [
+    { firstName: 'John', lastName: 'Doe', department: 'Engineering', co2: 50, points: 80 },
+    { firstName: 'Jane', lastName: 'Smith', department: 'Marketing', co2: 30, points: 65 },
+    { firstName: 'Alice', lastName: 'Johnson', department: 'HR', co2: 20, points: 90 },
+    { firstName: 'Bob', lastName: 'Brown', department: 'Engineering', co2: 40, points: 75 },
+    { firstName: 'Charlie', lastName: 'Davis', department: 'Sales', co2: 60, points: 50 },
+    { firstName: 'David', lastName: 'Miller', department: 'Marketing', co2: 35, points: 55 },
+    { firstName: 'Eva', lastName: 'Wilson', department: 'HR', co2: 15, points: 95 },
+    { firstName: 'Frank', lastName: 'Clark', department: 'Sales', co2: 55, points: 60 },
+    { firstName: 'Grace', lastName: 'Lee', department: 'Engineering', co2: 45, points: 85 },
+    { firstName: 'Hannah', lastName: 'Walker', department: 'HR', co2: 25, points: 70 },
+  ];
 
-  }
+  const [selectedDepartment, setSelectedDepartment] = useState('All');
 
+  // Filtered and sorted users
+  const filteredUsers = selectedDepartment === 'All'
+    ? users
+    : users.filter((user) => user.department === selectedDepartment);
+
+  const sortedUsers = filteredUsers.sort((a, b) => b.points - a.points);
+
+  const departments = ['All', 'Engineering', 'Marketing', 'HR', 'Sales'];
 
   return (
     <>
@@ -37,28 +53,30 @@ const Dashboard = () => {
           <CRow>
             <CCol sm={5}>
               <h4 id="traffic" className="card-title mb-0">
-                Traffic
+                User Performance
               </h4>
-              <div className="small text-body-secondary">January - July 2023</div>
+              <div className="small text-body-secondary">CO₂ Savings and Points</div>
             </CCol>
             <CCol sm={7} className="d-none d-md-block">
               <CButton color="primary" className="float-end">
                 <CIcon icon={cilCloudDownload} />
               </CButton>
               <CButtonGroup className="float-end me-3">
-                {['Day', 'Month', 'Year'].map((value) => (
+                {departments.map((department) => (
                   <CButton
                     color="outline-secondary"
-                    key={value}
+                    key={department}
                     className="mx-0"
-                    active={value === 'Month'}
+                    active={department === selectedDepartment}
+                    onClick={() => setSelectedDepartment(department)}
                   >
-                    {value}
+                    {department}
                   </CButton>
                 ))}
               </CButtonGroup>
             </CCol>
           </CRow>
+
           <CRow>
             <CCol xs={6}>
               <CCard className="mb-4">
@@ -66,26 +84,34 @@ const Dashboard = () => {
                 <CCardBody>
                   <CChartBar
                     data={{
-                      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                      labels: sortedUsers.map(
+                        (user) => `${user.firstName} ${user.lastName}`
+                      ),
                       datasets: [
                         {
-                          label: 'GitHub Commits',
+                          label: 'Points',
                           backgroundColor: '#f87979',
-                          data: [40, 20, 12, 39, 10, 40, 39, 80, 40],
+                          data: sortedUsers.map((user) => user.points),
                         },
                       ],
                     }}
-                    labels="months"
+                    options={{
+                      indexAxis: 'y', // horizontal bar chart
+                      scales: {
+                        x: {
+                          beginAtZero: true,
+                        },
+                      },
+                    }}
                   />
                 </CCardBody>
               </CCard>
             </CCol>
           </CRow>
-
         </CCardBody>
       </CCard>
     </>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
