@@ -1,0 +1,11 @@
+.sidebar-toggler-visible {
+   display: block !important; 
+}
+
+.sidebar-collapsed {
+  width: 13vh !important;
+}
+
+.sidebar-expanded {
+  width: 23vh !important;
+}

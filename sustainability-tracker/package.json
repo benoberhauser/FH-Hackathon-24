@@ -1,0 +1,26 @@
+{
+  "name": "syp-template-24",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "cross-env AUTHJWT_VERIFY=false MONGODB_RECREATE=true MONGODB_CONNECTION_STRING=mongodb://localhost:50000/openhouse-team-x-test mocha tests --recursive --timeout 10000 --exit",
+    "dev": "cross-env AUTHJWT_VERIFY=false LOG_LEVEL=debug nodemon server.js",
+    "fill-demo-data": "node ./db/fill-demo-data.js"
+  },
+  "author": "KAA",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "jwks-rsa": "^3.1.0",
+    "mongoose": "^8.1.1",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "nodemon": "^3.0.3",
+    "supertest": "^6.3.4"
+  }
+}
