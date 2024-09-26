@@ -18,10 +18,7 @@ const { errorHandler } = require('./middlewares/error-handling');
 
 
 /* ***************** IMPORT REQUEST-HANDLER **************** */
-const entitiesHandler = require('./api/entities/entities-handlers');
-const infoHandler = require('./api/info/info-handler');
-const schoolsHandler = require('./api/schools/schools-handlers');
-
+const personsHandler = require('./api/persons/persons-handlers');
 
 /* ***************** CONFIG and CONSTS ********************* */
 /* Take configuration from environment variables or use hardcoded default value */
@@ -31,11 +28,6 @@ const PORT = process.env.PORT || DEFAULTS.PORT;
 const MONGODB_CONNECTION_STRING = process.env.MONGODB_CONNECTION_STRING || DEFAULTS.MONGODB_CONNECTION_STRING;
 const MONGODB_RECREATE = process.env.MONGODB_RECREATE === 'true';
 
-const TENANT_ID = process.env.TENANT_ID || '2b197efa-8e1b-4680-b263-8e237889b5b3';
-const APP_ID = process.env.APP_ID || '6ad4a7f8-9383-461e-bf00-9155de40b24d';
-
-// if not explicitly set to false do verification
-const AUTHJWT_VERIFY = process.env.AUTHJWT_VERIFY === 'false' ? false : true;
 
 
 /* ***************** START UP ******************************* */
@@ -48,7 +40,8 @@ app.use(express.json({ type: ['application/json', 'application/merge-patch+json'
 app.use(express.static(path.join(__dirname, "client", "dist")));
 
 // register all endpoints 
-app.get('/api/employees', entitiesHandler.getAll);
+app.get('/api/persons', personsHandler.getAll);
+app.get('/api/persons', personsHandler.getFullCO2Savings);
 
 // register catch-all route to handle client-side routing with index.html
 app.get("*", (_req, res) => {

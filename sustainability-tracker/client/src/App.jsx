@@ -38,7 +38,7 @@ export default function App() {
         </div>
       </main>
       <footer>
-        <p>&copy; 2024 HTL - Villach - Informatik. Alle Rechte vorbehalten.</p>
+        <p>&copy; 2024 - Sustainablity Tracker</p>
       </footer>
     </div >
   )
