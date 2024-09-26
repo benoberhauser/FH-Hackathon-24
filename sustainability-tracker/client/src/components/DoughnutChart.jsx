@@ -5,7 +5,6 @@ import React from 'react';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DoughnutChart = ({ currentCO2, goalCO2 }) => {
-  // Berechne den prozentualen Anteil des eingesparten CO2 im Vergleich zum Ziel
   const co2Percentage = Math.min((currentCO2 / goalCO2) * 100, 100);
 
   const data = {
@@ -22,9 +21,9 @@ const DoughnutChart = ({ currentCO2, goalCO2 }) => {
   };
 
   const options = {
-    circumference: 180, // Halbkreis
-    rotation: 270, // Startet von oben
-    cutout: '70%', // Donut-Form
+    circumference: 180,
+    rotation: 270,
+    cutout: '70%', 
     plugins: {
       tooltip: {
         callbacks: {

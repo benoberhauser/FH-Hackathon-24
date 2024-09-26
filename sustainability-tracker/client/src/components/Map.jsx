@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { Loader } from '@googlemaps/js-api-loader'; // Google Maps API Loader
-import './Map.css'; // Importiere die CSS-Datei für das Styling
+import { Loader } from '@googlemaps/js-api-loader'; 
+import './Map.css'; 
 
 export default function Map() {
   const mapRef = useRef(null);
@@ -8,14 +8,13 @@ export default function Map() {
   useEffect(() => {
     const initializeMap = async () => {
       const loader = new Loader({
-        apiKey: "AIzaSyC2Wi_aMWsf17s6ol07FgEC9dk5pMOiGVg", // API-Schlüssel
+        apiKey: "AIzaSyC2Wi_aMWsf17s6ol07FgEC9dk5pMOiGVg",
         version: "weekly",
       });
 
       await loader.load();
       const google = window.google;
 
-      // Importiere die AdvancedMarkerElement-Bibliothek
       const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
       const map = new google.maps.Map(mapRef.current, {
@@ -47,7 +46,6 @@ export default function Map() {
         </svg>
       `;
 
-      // Erstellen der SVG-Icons
       const pinSvg = parser.parseFromString(pinSvgString, 'image/svg+xml').documentElement;
 
       // Erstellen der AdvancedMarkerElement für Shuttle-Stationen

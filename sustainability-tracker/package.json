@@ -8,7 +8,7 @@
     "dev": "cross-env AUTHJWT_VERIFY=false LOG_LEVEL=debug nodemon server.js",
     "fill-demo-data": "node ./db/fill-demo-data.js"
   },
-  "author": "KAA",
+  "author": "BenOberhauser",
   "license": "ISC",
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.16.8",

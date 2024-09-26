@@ -9,7 +9,6 @@ const path = require('path');
 /* ***************** IMPORT LIBS *************************** */
 const { logger } = require('./logging/log');
 const database = require("./db/database");
-const { ROLE_ADMIN, ROLE_WORKER } = require('./auth/roles');
 const DEFAULTS = require('./config/defaults.json');
 
 

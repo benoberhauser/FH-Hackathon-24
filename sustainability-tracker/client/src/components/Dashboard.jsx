@@ -21,9 +21,9 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Dashboard = () => {
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true); // Hinzufügen eines Ladesignals
-  const [currentCO2, setCurrentCO2] = useState(0); // Einsparung von CO2
-  const goalCO2 = 1000; // Ziel (z.B. 1000 kg CO2)
+  const [loading, setLoading] = useState(true);
+  const [currentCO2, setCurrentCO2] = useState(0);
+  const goalCO2 = 1000;
 
   useEffect(() => {
     // Fetch the user data
@@ -31,17 +31,16 @@ const Dashboard = () => {
       .then((response) => response.json())
       .then((data) => {
         setUsers(data);
-        setLoading(false); // Daten geladen, Ladeanzeige ausblenden
+        setLoading(false);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
-        setLoading(false); // Auch im Fehlerfall ausblenden
+        setLoading(false);
       });
 
-    // Fetch the total saved CO2
     fetch('/api/fullCO2Savings')
       .then((response) => response.json())
-      .then((data) => setCurrentCO2(data)) // setze die eingesparte Menge an CO2
+      .then((data) => setCurrentCO2(data))
       .catch((error) => console.error('Error fetching CO2 data:', error));
   }, []);
 
@@ -82,7 +81,6 @@ const Dashboard = () => {
               <CCard className="mb-4">
                 <CCardHeader>CO₂ Einsparung (aktueller Stand im Vergleich zum Ziel)</CCardHeader>
                 <CCardBody className="d-flex justify-content-center">
-                  {/* Übergabe der aktuellen und Zielwerte an das DoughnutChart */}
                   <DoughnutChart currentCO2={currentCO2} goalCO2={goalCO2} />
                 </CCardBody>
                 <CCardBody className="text-center">
@@ -122,7 +120,6 @@ const Dashboard = () => {
           </CRow>
 
           <CRow>
-            {/* Chart für Punkte */}
             <CCol xs={6}>
               <CCard className="mb-4">
                 <CCardHeader>EcoCoins Bar Chart</CCardHeader>
@@ -141,7 +138,7 @@ const Dashboard = () => {
                       ],
                     }}
                     options={{
-                      indexAxis: 'x', // Horizontaler Balkendiagramm
+                      indexAxis: 'x', 
                       scales: {
                         x: {
                           beginAtZero: true,
@@ -153,7 +150,6 @@ const Dashboard = () => {
               </CCard>
             </CCol>
 
-            {/* Chart für CO2 */}
             <CCol xs={6}>
               <CCard className="mb-4">
                 <CCardHeader>Eingespartes CO2/Kg Bar Chart</CCardHeader>
@@ -172,7 +168,7 @@ const Dashboard = () => {
                       ],
                     }}
                     options={{
-                      indexAxis: 'x', // Horizontaler Balkendiagramm
+                      indexAxis: 'x', 
                       scales: {
                         x: {
                           beginAtZero: true,
