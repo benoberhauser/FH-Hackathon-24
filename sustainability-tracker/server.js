@@ -41,7 +41,7 @@ app.use(express.static(path.join(__dirname, "client", "dist")));
 
 // register all endpoints 
 app.get('/api/persons', personsHandler.getAll);
-app.get('/api/persons', personsHandler.getFullCO2Savings);
+app.get('/api/fullCO2Savings', personsHandler.getFullCO2Savings);
 
 // register catch-all route to handle client-side routing with index.html
 app.get("*", (_req, res) => {

@@ -10,15 +10,23 @@ import {
   CSpinner,
 } from '@coreui/react';
 
-import { CChartBar } from '@coreui/react-chartjs';
+import {Doughnut} from 'react-chartjs-2';
+import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js'
+import { CChartBar, CChartDoughnut } from '@coreui/react-chartjs';
 import CIcon from '@coreui/icons-react';
 import { cilCloudDownload } from '@coreui/icons';
+import DoughnutChart from './DoughnutChart';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Dashboard = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true); // Hinzufügen eines Ladesignals
+  const [currentCO2, setCurrentCO2] = useState(0); // Einsparung von CO2
+  const goalCO2 = 1000; // Ziel (z.B. 1000 kg CO2)
 
   useEffect(() => {
+    // Fetch the user data
     fetch('/api/persons')
       .then((response) => response.json())
       .then((data) => {
@@ -29,6 +37,12 @@ const Dashboard = () => {
         console.error('Error fetching data:', error);
         setLoading(false); // Auch im Fehlerfall ausblenden
       });
+
+    // Fetch the total saved CO2
+    fetch('/api/fullCO2Savings')
+      .then((response) => response.json())
+      .then((data) => setCurrentCO2(data)) // setze die eingesparte Menge an CO2
+      .catch((error) => console.error('Error fetching CO2 data:', error));
   }, []);
 
   const [selectedDepartment, setSelectedDepartment] = useState('All');
@@ -45,6 +59,9 @@ const Dashboard = () => {
   const sortedByCO2 = [...filteredUsers].sort((a, b) => b.co2 - a.co2);
 
   const departments = ['All', 'Engineering', 'Marketing', 'HR', 'Sales'];
+
+  // Berechne die Prozentsatz des eingesparten CO2s im Vergleich zum Ziel
+  const co2Percentage = Math.min((currentCO2 / goalCO2) * 100, 100);
 
   // Ladeanzeige anzeigen, solange Daten abgerufen werden
   if (loading) {
@@ -146,6 +163,24 @@ const Dashboard = () => {
                       },
                     }}
                   />
+                </CCardBody>
+              </CCard>
+            </CCol>
+          </CRow>
+
+          {/* Halbkreis Donut Diagramm für CO2 Einsparung */}
+          <CRow className="mt-4">
+            <CCol xs={12}>
+              <CCard className="mb-4">
+                <CCardHeader>CO₂ Einsparung (aktueller Stand im Vergleich zum Ziel)</CCardHeader>
+                <CCardBody className="d-flex justify-content-center">
+                  {/* Übergabe der aktuellen und Zielwerte an das DoughnutChart */}
+                  <DoughnutChart currentCO2={currentCO2} goalCO2={goalCO2} />
+                </CCardBody>
+                <CCardBody className="text-center">
+                  <p>
+                    Aktuell eingespartes CO₂: <strong>{currentCO2} kg</strong> von <strong>{goalCO2} kg</strong> (Ziel)
+                  </p>
                 </CCardBody>
               </CCard>
             </CCol>

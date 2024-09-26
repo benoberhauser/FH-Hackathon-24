@@ -22,10 +22,8 @@ const getFullCO2Savings = async (req, resp, next) => {
         let fullCO2Savings = persons.reduce((accumulator, currentValue) => {
             return accumulator+currentValue.co2;
         }, 0)
-
-        print(fullCO2Savings);
         resp.status(200);
-        resp.json()
+        resp.json(fullCO2Savings)
     }
     catch (err) {
         next(new InternalServerError(err));
