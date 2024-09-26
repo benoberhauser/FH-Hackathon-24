@@ -1,26 +1,16 @@
 import './SideNavBar.css';
-
-import Button from 'react-bootstrap/Button';
-import PropTypes from "prop-types";
-
 import SideBarButton from './SideBarButton';
-import { showToast } from '../Toasts/ToastContainer';
 
 export default function SideNavBar({ onToggle, collapsed }) {
   return (
-    <div className="px-3">
-      <div className="d-flex justify-content-center py-2">
-        <SideBarButton collapsed={collapsed} text="Features1" icon="bi bi-feather"></SideBarButton>{/*href missing*/}
+    <div className="side-nav-bar"> {/* Die Klasse 'side-nav-bar' wird hier hinzugefügt */}
+      <div className="py-2">
+        <SideBarButton collapsed={collapsed} text="Dashboard" href="/" icon="bi bi-bar-chart-line"></SideBarButton>
       </div>
 
-      <div className="d-flex justify-content-center py-2">
-        <SideBarButton collapsed={collapsed} text="Features2" icon="bi bi-bar-chart-line"></SideBarButton>
+      <div className="py-2">
+        <SideBarButton collapsed={collapsed} text="Map" href="map" icon="bi bi-geo-alt"></SideBarButton>
       </div>
-    </div >
-  )
-}
-
-SideNavBar.propTypes = {
-  collapsed: PropTypes.bool,
-  onToggle: PropTypes.func
+    </div>
+  );
 }

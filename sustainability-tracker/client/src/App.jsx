@@ -29,7 +29,7 @@ export default function App() {
       </header>
       <main>
         <div className="row content-row">
-          <div className={getClasses() + " bg-body-tertiary col-scrollable border-end pe-0"}>
+          <div className={getClasses() + " bg-body-tertiary col-scrollable border-end pe-0"} backgroundcolor="#2870ed"> 
             <SideNavBar onToggle={handleToggle} collapsed={sideBarCollapsed}></SideNavBar>
           </div>
           <div className="col col-scrollable border-end p-3">

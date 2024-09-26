@@ -9,3 +9,36 @@
 .sidebar-expanded {
   width: 23vh !important;
 }
+
+.side-nav-bar {
+  background-color: #fff; /* Sidebar komplett weiß */
+  border-top: 1px solid #fff; /* Weiße Oberkante */
+  border-right: 1px solid #d3d3d3; /* Hellgraue rechte Kante */
+  height: 100vh; /* Volle Höhe */
+  padding-top: 20px; /* Abstand oben */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Buttons innerhalb der Sidebar */
+.side-nav-bar .nav-button {
+  width: 100%; /* Button füllt die Sidebar */
+  background-color: #fff !important; /* Buttons weiß */
+  color: #2870de !important; /* Text in derselben blauen Farbe wie die Top-Navbar */
+  border: none; /* Keine sichtbare Umrandung */
+  text-align: left; /* Text linksbündig */
+  padding: 12px 20px; /* Padding für den Button */
+  border-radius: 8px; /* Leichte Rundungen an den Ecken */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten um den Button */
+  transition: all 0.3s ease; /* Sanfte Übergänge */
+}
+
+.side-nav-bar .nav-button:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Schatten verstärken beim Hover */
+  background-color: #f9f9f9 !important; /* Hellerer Hintergrund beim Hover */
+  color: #2870de !important; /* Text bleibt blau */
+}
+
+.side-nav-bar .nav-button i {
+  margin-right: 8px; /* Abstand zwischen Icon und Text */
+}

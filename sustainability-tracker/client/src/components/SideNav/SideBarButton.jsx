@@ -4,19 +4,16 @@ import { NavLink } from "react-router-dom";
 
 export default function SideBarButton({ collapsed, text, href, onClick, icon }) {
   return (
-    //     <NavLink to={href}>
-    //   <Button className="btn-light w-100" onClick={onClick}>
-    //     <i className={icon}></i>
-    //   </Button >
-    // </NavLink>
-
     <NavLink to={href}>
-      <Button className="btn-light w-100" onClick={onClick}>
+      <Button
+        className="nav-button" // Wir verwenden die 'nav-button'-Klasse aus dem CSS
+        onClick={onClick}
+      >
         <i className={icon}></i>
-        {collapsed ? <></> : <span className="ps-2">{text}</span>}
+        {!collapsed && <span className="ps-2">{text}</span>} {/* Text wird nur bei expandiertem Zustand angezeigt */}
       </Button>
     </NavLink>
-  )
+  );
 }
 
 SideBarButton.propTypes = {
@@ -25,4 +22,4 @@ SideBarButton.propTypes = {
   href: PropTypes.string,
   onClick: PropTypes.func,
   icon: PropTypes.string
-}
+};

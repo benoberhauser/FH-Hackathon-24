@@ -1,20 +1,52 @@
+/* App.css */
+
 header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    
+  background-color: #2870ed;
+  color: #fff;
+  text-align: center;
+  
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  background-color: #2870ed;
+  color: #fff;
+  text-align: center;
+  
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
+
+/* Top Navbar */
+.wmc4-app header {
+  background-color: #2870de !important;
+  color: #fff; /* Optional: Textfarbe weiß */
+}
+
+.wmc4-app header .navbar {
+  background-color: #2870de !important; 
+  color: #fff !important; /* Optional: Textfarbe */
+}
+
+/* Optional: Anpassen des Textes und der Links in der Navbar */
+.wmc4-app header .navbar a {
+  color: #fff !important; /* Linkfarbe */
+}
+
+/* Sidebar expanded */
+.wmc4-app .sidebar-expanded {
+  background-color: #2870de !important;
+  color: #fff; /* Optional: Textfarbe auch ändern */
+}
+
+/* Sidebar collapsed */
+.wmc4-app .sidebar-collapsed {
+  background-color: #2870de !important;
+  color: #fff; /* Optional: Textfarbe auch ändern */
+}
+
+/* Restliche Styles bleiben unverändert */
 .wmc4-app {
   overflow: hidden;
 }
@@ -33,21 +65,22 @@ footer {
   overflow-y: scroll;
 }
 
+/* Scrollbar-Styling */
 ::-webkit-scrollbar {
   width: 2px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #2870ed;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #2870ed;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #2870ed;
 }

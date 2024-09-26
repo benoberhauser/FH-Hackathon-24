@@ -1,13 +1,13 @@
 [
-    { "firstName": "John", "lastName": "Doe", "department": "Engineering", "co2": 50, "points": 80 },
-    { "firstName": "Jane", "lastName": "Smith", "department": "Marketing", "co2": 30, "points": 65 },
-    { "firstName": "Alice", "lastName": "Johnson", "department": "HR", "co2": 20, "points": 90 },
-    { "firstName": "Bob", "lastName": "Brown", "department": "Engineering", "co2": 40, "points": 75 },
-    { "firstName": "Charlie", "lastName": "Davis", "department": "Sales", "co2": 60, "points": 50 },
-    { "firstName": "David", "lastName": "Miller", "department": "Marketing", "co2": 35, "points": 55 },
-    { "firstName": "Eva", "lastName": "Wilson", "department": "HR", "co2": 15, "points": 95 },
-    { "firstName": "Frank", "lastName": "Clark", "department": "Sales", "co2": 55, "points": 60 },
-    { "firstName": "Grace", "lastName": "Lee", "department": "Engineering", "co2": 45, "points": 85 },
-    { "firstName": "Hannah", "lastName": "Walker", "department": "HR", "co2": 25, "points": 70 }
+    { "firstName": "John", "lastName": "Doe", "department": "Engineering", "co2": 50, "ecocoins": 80 },
+    { "firstName": "Jane", "lastName": "Smith", "department": "Marketing", "co2": 30, "ecocoins": 65 },
+    { "firstName": "Alice", "lastName": "Johnson", "department": "HR", "co2": 20, "ecocoins": 90 },
+    { "firstName": "Bob", "lastName": "Brown", "department": "Engineering", "co2": 40, "ecocoins": 75 },
+    { "firstName": "Charlie", "lastName": "Davis", "department": "Sales", "co2": 60, "ecocoins": 50 },
+    { "firstName": "David", "lastName": "Miller", "department": "Marketing", "co2": 35, "ecocoins": 55 },
+    { "firstName": "Eva", "lastName": "Wilson", "department": "HR", "co2": 15, "ecocoins": 95 },
+    { "firstName": "Frank", "lastName": "Clark", "department": "Sales", "co2": 55, "ecocoins": 60 },
+    { "firstName": "Grace", "lastName": "Lee", "department": "Engineering", "co2": 45, "ecocoins": 85 },
+    { "firstName": "Hannah", "lastName": "Walker", "department": "HR", "co2": 25, "ecocoins": 70 }
   ]
   

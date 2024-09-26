@@ -53,7 +53,7 @@ const Dashboard = () => {
     : users.filter((user) => user.department === selectedDepartment);
 
   // Sortieren nach Punkten (absteigend)
-  const sortedByPoints = [...filteredUsers].sort((a, b) => b.points - a.points);
+  const sortedByEcoCoins = [...filteredUsers].sort((a, b) => b.ecocoins - a.ecocoins);
 
   // Sortieren nach CO2 (absteigend)
   const sortedByCO2 = [...filteredUsers].sort((a, b) => b.co2 - a.co2);
@@ -82,7 +82,7 @@ const Dashboard = () => {
               <h4 id="traffic" className="card-title mb-0">
                 User Performance
               </h4>
-              <div className="small text-muted">CO₂ Savings and Points</div>
+              <div className="small text-muted">CO₂ Savings and EcoCoins</div>
             </CCol>
             <CCol sm={7} className="d-none d-md-block">
               <CButton color="primary" className="float-end">
@@ -108,18 +108,18 @@ const Dashboard = () => {
             {/* Chart für Punkte */}
             <CCol xs={6}>
               <CCard className="mb-4">
-                <CCardHeader>Points Bar Chart</CCardHeader>
+                <CCardHeader>EcoCoins Bar Chart</CCardHeader>
                 <CCardBody>
                   <CChartBar
                     data={{
-                      labels: sortedByPoints.map(
+                      labels: sortedByEcoCoins.map(
                         (user) => `${user.firstName} ${user.lastName}`
                       ),
                       datasets: [
                         {
-                          label: 'Points',
-                          backgroundColor: '#f87979',
-                          data: sortedByPoints.map((user) => user.points),
+                          label: 'EcoCoins',
+                          backgroundColor: '#0cb43f',
+                          data: sortedByEcoCoins.map((user) => user.ecocoins),
                         },
                       ],
                     }}
@@ -149,7 +149,7 @@ const Dashboard = () => {
                       datasets: [
                         {
                           label: 'CO2 pro Kg',
-                          backgroundColor: '#36a2eb',
+                          backgroundColor: '#028661',
                           data: sortedByCO2.map((user) => user.co2),
                         },
                       ],

@@ -15,7 +15,7 @@ const personSchema = new mongoose.Schema({
   co2: {
     type: Number,
   },
-  points: {
+  ecocoins: {
     type: Number
   }
 });
