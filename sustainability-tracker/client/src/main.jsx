@@ -11,6 +11,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import ErrorPage from './components/Errors/ErrorPage';
 import Dashboard from './components/Dashboard';  // Importiere dein Dashboard
+import Map from './components/Map.jsx';
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
         index: true,  // Dies gibt an, dass dies die Standardkomponente ist
         element: <Dashboard />,  // Das Dashboard als Home-Page-Element
       },
+      {
+        path: "map",
+        element: <Map></Map>
+      }
     ],
   },
 ]);

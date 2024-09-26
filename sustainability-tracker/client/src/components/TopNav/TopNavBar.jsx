@@ -22,19 +22,11 @@ export default function TopNavBar() {
 
   return (
     <Navbar id="topNav" collapseOnSelect expand="lg" className="bg-body-tertiary ps-3">
-      <NavLink to="/">
-        <Navbar.Brand>
-          Sustainablity Tracker
-        </Navbar.Brand>
-      </NavLink>
-
+      <Navbar.Brand>
+        Sustainablity Tracker
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="me-auto">
-          <Nav.Link as={NavLink}>Demo1</Nav.Link> {/* to ... is missing*/}
-          <Nav.Link as={NavLink}>Demo2</Nav.Link>
-
-        </Nav>
       </Navbar.Collapse>
 
     </Navbar>

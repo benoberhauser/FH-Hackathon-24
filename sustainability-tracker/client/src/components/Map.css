@@ -1,0 +1,35 @@
+/* Container für die Karte und den Titel */
+.map-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+/* Groß und fett für den Titel */
+.map-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #333;
+}
+
+/* Untertitel kleiner und subtiler */
+.map-subtitle {
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Styling der Karte */
+.styled-map {
+  width: 90%;
+  height: 500px;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}

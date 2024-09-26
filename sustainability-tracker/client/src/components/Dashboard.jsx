@@ -10,8 +10,8 @@ import {
   CSpinner,
 } from '@coreui/react';
 
-import {Doughnut} from 'react-chartjs-2';
-import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js'
+import { Doughnut } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { CChartBar, CChartDoughnut } from '@coreui/react-chartjs';
 import CIcon from '@coreui/icons-react';
 import { cilCloudDownload } from '@coreui/icons';
@@ -77,7 +77,24 @@ const Dashboard = () => {
     <>
       <CCard className="mb-4">
         <CCardBody>
+          <CRow className="mt-4">
+            <CCol xs={12}>
+              <CCard className="mb-4">
+                <CCardHeader>CO₂ Einsparung (aktueller Stand im Vergleich zum Ziel)</CCardHeader>
+                <CCardBody className="d-flex justify-content-center">
+                  {/* Übergabe der aktuellen und Zielwerte an das DoughnutChart */}
+                  <DoughnutChart currentCO2={currentCO2} goalCO2={goalCO2} />
+                </CCardBody>
+                <CCardBody className="text-center">
+                  <p>
+                    Aktuell eingespartes CO₂: <strong>{currentCO2} kg</strong> von <strong>{goalCO2} kg</strong> (Ziel)
+                  </p>
+                </CCardBody>
+              </CCard>
+            </CCol>
+          </CRow>
           <CRow>
+
             <CCol sm={5}>
               <h4 id="traffic" className="card-title mb-0">
                 User Performance
@@ -163,24 +180,6 @@ const Dashboard = () => {
                       },
                     }}
                   />
-                </CCardBody>
-              </CCard>
-            </CCol>
-          </CRow>
-
-          {/* Halbkreis Donut Diagramm für CO2 Einsparung */}
-          <CRow className="mt-4">
-            <CCol xs={12}>
-              <CCard className="mb-4">
-                <CCardHeader>CO₂ Einsparung (aktueller Stand im Vergleich zum Ziel)</CCardHeader>
-                <CCardBody className="d-flex justify-content-center">
-                  {/* Übergabe der aktuellen und Zielwerte an das DoughnutChart */}
-                  <DoughnutChart currentCO2={currentCO2} goalCO2={goalCO2} />
-                </CCardBody>
-                <CCardBody className="text-center">
-                  <p>
-                    Aktuell eingespartes CO₂: <strong>{currentCO2} kg</strong> von <strong>{goalCO2} kg</strong> (Ziel)
-                  </p>
                 </CCardBody>
               </CCard>
             </CCol>

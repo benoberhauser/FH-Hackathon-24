@@ -1,10 +1,11 @@
-.navbar-logo {
-  width: 30px;
-  height: 30px;
-  border-radius: 5%;
+/* Setze die Schriftfarbe des Navbar-Brands auf Weiß */
+#topNav .navbar-brand {
+  color: white !important;
+  text-decoration: none; /* Entfernt die Unterstreichung */
 }
 
-#topNav a {
-  text-decoration: none; 
-  color: white
+/* Optional: Weitere Stile für das Navbar-Branding */
+#topNav .navbar-brand:hover {
+  color: #f0f0f0 !important; /* Hellere Farbe beim Hover */
+  text-decoration: none; /* Sicherstellen, dass beim Hover keine Unterstreichung erscheint */
 }
